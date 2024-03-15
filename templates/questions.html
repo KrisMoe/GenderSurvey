@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block title %}Gender Survey{% endblock %}
+
+{% block content %}
+<form class = "pure-form">
+    <fieldset>
+        <legend>Gender Survey</legend>
+        {% for question in questions %}
+        {% include "questionfactory.html" ignore missing with context %}
+        {% endfor %}
+        <br>
+        <button type="submit" class="pure-button pure-button-primary">Submit</button>
+    </fieldset>
+</form>
+
+{% endblock %}

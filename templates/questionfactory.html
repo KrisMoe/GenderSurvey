@@ -1,0 +1,28 @@
+<p>Please choose your gender</p>
+{% for option in question.options %}
+    {%if question.type == "radio-text"%}
+        <label for = {{option.id}} class="pure-radio">
+            <input type="radio" id= {{option.id}} name={{question.id}} value={{option.name}}/> {{option.name}}
+        </label>
+    {%elif  question.type == "checkbox-text"%}
+        <label for = {{option.id}} class="pure-checkbox">
+            <input type="checkbox" id= {{option.id}} name={{question.id}} value={{option.name}}/> {{option.name}}
+        </label>
+    {%elif  question.type == "input-text"%}
+        <label for = {{option.id}} class="pure-input">
+            <input type="input" id= {{option.id}} name={{question.id}} placeholder="Enter Text"/>
+        </label>
+    {%elif  question.type == "color"%}
+        <label for = {{option.id}} class=""> Click to Change Color <br>
+            <input type="color" id= {{option.id}} name={{question.id}} style="border: none; box-shadow: none" /> 
+    {%elif  question.type == "time"%}
+        <label for = {{option.id}} class="pure-input">
+            <input type="time" id= {{option.id}} name={{question.id}}/>
+    {%elif  question.type == "date"%}
+        <label for = {{option.id}} class="pure-input">
+            <input type="date" id= {{option.id}} name={{question.id}}/>
+    {%elif  question.type == "range"%}
+            <label for = {{option.id}} class="pure-input">
+                <input type="range" id= {{option.id}} name={{question.id}} min="0" max="99"/>
+    {%endif%}
+{% endfor %}

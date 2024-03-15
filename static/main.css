@@ -1,0 +1,119 @@
+
+/*
+color pallet 
+    #ffffff
+    #2828de
+    #ffffff
+*/
+body{
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+}
+.top-block{
+    height: 5em;
+    background-color: #2828de;
+}
+.top-spikes{
+    display: flex;
+    flex-direction: row;
+}
+.top-right{
+    width: 2em;
+    background-color: #2828de;
+}
+.top-left{
+    width: 2em;
+    background-color: #2828de;
+}
+.top-middle{
+    display: flex;
+    flex-grow: 1;
+
+    height: 4em;
+    flex-direction: row;
+}
+
+.main{
+    display: flex;
+    flex-direction: row;
+
+
+}
+.right-block{
+    width: 2em;
+    background-color: #2828de;
+}
+.right-spikes{
+    width: 4em;
+}
+.left-block{
+    width: 2em;
+    background-color: #2828de;
+}
+.left-spikes{
+    width: 4em;
+}
+
+
+.canvas{
+    width: 500px;
+    height: 500px;
+    min-width: 500px;
+    min-height: 500px;
+    background-color: white;
+
+}
+
+  
+#canvas{
+
+    position: absolute;
+    top: 160px;
+    left: 111px;
+}
+.canvas-object{
+    position: absolute;
+    top: 160px;
+    left: 111px;
+    width: 200px;
+    height: 100px;
+
+
+    position: absolute; 
+    opacity: 0.6; 
+  
+}
+.canvas-placeholder{
+    margin-top: 500px;
+}
+#output{
+    max-width: 500px;
+}
+
+.content{
+    padding: 1em;
+    flex-grow: 1;
+    background-color: #ffffff;
+    box-shadow: 00em 0em 0.25em 0.1em#2828de88;
+    margin-bottom: 2em;
+    min-height: 700px;
+   
+
+}
+.pure-button {
+    background-color: #2828de;
+    border-radius: 1em;
+}
+input[type=color]{
+    background-color: #00000000;
+    border: white;
+    border-radius: 1em;
+    width: 3em;
+    height: 3em;
+   
+
+}
+input{
+    margin-bottom:0.5em;
+}

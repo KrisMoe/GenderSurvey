@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% block title %}Create polygon{% endblock %}
+
+{% block content %}
+<script>
+let pointLst = [];
+let currPaintingNum = 0;
+function createCss(event){
+    let output = "clip-path: polygon(";
+    let newstyle = "polygon(";
+    for (let i = 0; i < pointLst.length; i++) {
+        output += String( Math.round((pointLst[i][0]/500) * 100)) + "% " +String( Math.round((pointLst[i][1]/500) * 100))  +"%";
+        newstyle += String( Math.round((pointLst[i][0]/500) * 100)) + "% " +String( Math.round((pointLst[i][1]/500) * 100))  +"%";
+        if(i!=pointLst.length-1){
+            output += ",";
+            newstyle +=",";
+        }
+        else{
+            output += ");";
+            newstyle +=")";
+        }
+      }
+    let painting = document.getElementsByClassName("canvas-object")
+    painting[currPaintingNum].style.clipPath=newstyle;
+    painting[currPaintingNum].style.backgroundColor="black";
+    console.log(output);
+    console.log(newstyle);
+    
+
+    while ( document.getElementById("output").childNodes.length>currPaintingNum&& document.getElementById("output").hasChildNodes()) {
+        console.log(document.getElementById("output").lastChild);
+        document.getElementById("output").removeChild(document.getElementById("output").lastChild);
+      }
+
+    const para = document.createElement("p");
+    para.innerText = output;
+    document.getElementById("output").appendChild(para);
+}
+function addPoint(event){
+    let x = event.offsetX;
+    let y = event.offsetY;
+    console.log(x,y);
+    pointLst.push([x,y])
+    console.log(pointLst);
+    createCss(event)
+}
+function insertAfter(referenceNode, newNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+function addpainting(){
+    let painting = document.getElementsByClassName("canvas-object")
+
+    const newpainting = document.createElement("div");
+    newpainting.setAttribute("class", "canvas canvas-object");
+    newpainting.setAttribute("onClick" , "addPoint(event)");
+    insertAfter(painting[currPaintingNum],newpainting);
+    currPaintingNum += 1;
+    pointLst = [];
+}
+</script>
+
+<div id = "canvas" class = "canvas" onClick = "addPoint(event) "></div>
+<div  class = "canvas canvas-object" onClick = "addPoint(event)"></div>
+<div class = "canvas-placeholder"></div>
+<button onClick = "addpainting()">create new</button>
+<div id = "output"></div>
+
+{% endblock %}
